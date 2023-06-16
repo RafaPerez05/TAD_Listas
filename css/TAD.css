@@ -1,0 +1,109 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Montserrat-Regular';
+    src: url('../font/Montserrat-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat-extra';
+    src: url('../font/Montserrat-ExtraBold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'Montserrat-Regular', sans-serif;
+    color: #222;
+    line-height: 1.6;
+}
+
+section {
+    width: 100%;
+    min-height: 100vh;
+    text-align: center;
+    padding: 40px 4%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+section:nth-of-type(1) {
+    background-image: url("/img/dark.png");
+    color: white;
+}
+
+section h1 {
+    font-size: 3rem;
+    font-family: 'Montserrat-extra', sans-serif;
+    margin-bottom: 10px;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin: 0;
+    font-family: 'Montserrat-Regular', sans-serif;
+}
+
+section p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+section pre {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    overflow-x: auto;
+}
+
+section:nth-of-type(2) {
+    background-color: #2b2a2c;
+    color: #c4caca;
+}
+
+section:nth-of-type(3) {
+    background-color: #c4caca;
+    color: #2b2a2c;
+}
+
+section:nth-of-type(4) {
+    background-color: #2b2a2c;
+    color: #c4caca;
+}
+
+section:nth-of-type(5) {
+    background-color: #c4caca;
+    color: #2b2a2c;
+}
+
+section code {
+    display: block;
+    color: #2b2a2c;
+}
+
+section ul {
+    text-align: center;
+    list-style-type: square;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+section li {
+    margin-bottom: 10px;
+}

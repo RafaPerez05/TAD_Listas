@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/TAD.css">
+    <title>Efeito Parallax</title>
+</head>
+<body>
+    <!--1--> 
+    <section class="parallax-section">
+        <div class="parallax-content">
+            <h1>TAD</h1>
+            <h2>Tipo Abstrato de Dados</h2>
+        </div>
+    </section>
+
+    <!--2--> 
+    <section>
+        <div class="content">
+            <h1>O que é?</h1>
+            <p>Um tipo abstrato de dados (TAD) é uma abstração matemática que define um conjunto de operações e seus comportamentos em um objeto. O usuário do TAD só precisa conhecer as operações disponíveis e não precisa saber como essas operações são implementadas internamente.</p>
+        </div>
+    </section>
+
+    <!--3--> 
+    <section>
+        <div class="content">
+            <h1>Exemplo: Pilha</h1>
+            <p>Uma pilha é um TAD que segue a estratégia "LIFO" (Last In, First Out). Duas operações principais são comumente associadas a uma pilha:</p>
+            <pre><code>
+// Código para implementação de uma pilha
+class Pilha {
+    constructor() {
+        this.items = [];
+    }
+
+    push(element) {
+        this.items.push(element);
+    }
+
+    pop() {
+        if (this.isEmpty()) {
+            return "Underflow";
+        }
+        return this.items.pop();
+    }
+
+    peek() {
+        return this.items[this.items.length - 1];
+    }
+
+    isEmpty() {
+        return this.items.length === 0;
+    }
+}
+            </code></pre>
+        </div>
+    </section>
+
+    <!--4-->
+    <section>
+        <div class="content">
+            <h1>Exemplo: Fila</h1>
+            <p>Uma fila é um TAD que segue a estratégia "FIFO" (First In, First Out). Duas operações principais são comumente associadas a uma fila:</p>
+            <pre><code>
+// Código para implementação de uma fila
+class Fila {
+    constructor() {
+        this.items = [];
+    }
+
+    enqueue(element) {
+        this.items.push(element);
+    }
+
+    dequeue() {
+        if (this.isEmpty()) {
+            return "Underflow";
+        }
+        return this.items.shift();
+    }
+
+    front() {
+        if (this.isEmpty()) {
+            return "No elements in Queue";
+        }
+        return this.items[0];
+    }
+
+    isEmpty() {
+        return this.items.length === 0;
+    }
+}
+            </code></pre>
+        </div>
+    </section>
+
+    <!--5-->
+    <section>
+        <div class="content">
+            <h1>Exemplo: Lista Ligada</h1>
+            <p>Uma lista ligada é um TAD que consiste em nós, onde cada nó armazena um item e uma referência ao próximo nó. As operações básicas em uma lista ligada incluem:</p>
+            <ul>
+                <li>Inserir um elemento no início da lista (método <code>inserirInicio(elemento)</code>)</li>
+                <li>Inserir um elemento no fim da lista (método <code>inserirFim(elemento)</code>)</li>
+                <li>Remover um elemento do início da lista (método <code>removerInicio()</code>)</li>
+                <li>Remover um elemento do fim da lista (método <code>removerFim()</code>)</li>
+                <li>Verificar se a lista está vazia (método <code>vazia()</code>)</li>
+                <li>Imprimir os elementos da lista (método <code>imprimir()</code>)</li>
+            </ul>
+            <pre><code>
+// Código para implementação de uma lista ligada
+class No {
+    constructor(element) {
+        this.element = element;
+        this.next = null;
+    }
+}
+
+class ListaLigada {
+    constructor() {
+        this.head = null;
+        this.length = 0;
+    }
+
+    inserirInicio(element) {
+        const novoNo = new No(element);
+        if (this.head === null) {
+            this.head = novoNo;
+        } else {
+            novoNo.next = this.head;
+            this.head = novoNo;
+        }
+        this.length++;
+    }
+
+    inserirFim(element) {
+        const novoNo = new No(element);
+        if (this.head === null) {
+            this.head = novoNo;
+        } else {
+            let noAtual = this.head;
+            while (noAtual.next !== null) {
+                noAtual = noAtual.next;
+            }
+            noAtual.next = novoNo;
+        }
+        this.length++;
+    }
+
+    removerInicio() {
+        if (this.head === null) {
+            return null;
+        }
+        const removido = this.head;
+        this.head = this.head.next;
+        removido.next = null;
+        this.length--;
+        return removido.element;
+    }
+
+    removerFim() {
+        if (this.head === null) {
+            return null;
+        }
+        let noAtual = this.head;
+        let noAnterior = null;
+        while (noAtual.next !== null) {
+            noAnterior = noAtual;
+            noAtual = noAtual.next;
+        }
+        if (noAnterior === null) {
+            this.head = null;
+        } else {
+            noAnterior.next = null;
+        }
+        this.length--;
+        return noAtual.element;
+    }
+
+    vazia() {
+        return this.length === 0;
+    }
+
+    imprimir() {
+        let noAtual = this.head;
+        let result = '';
+        while (noAtual !== null) {
+            result += noAtual.element + ' ';
+            noAtual = noAtual.next;
+        }
+        console.log(result);
+    }
+}
+            </code></pre>
+        </div>
+    </section>
+</body>
+</html>
